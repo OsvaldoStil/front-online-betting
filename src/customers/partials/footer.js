@@ -7,10 +7,10 @@ export default class Footer extends Component { //aqui lo exportamos de una vez
             <div>
                 <footer className="text-center text-white bg-dark mt-5">
                     <section className="d-flex justify-content-evenly align-items-center p-2" style={{ background: '#fb7b33' }}>
-                        <img className="img-fluid" src="./img/patrocinador1.png" atl="patrocinador" />
+                        <img className="img-fluid" src="./img/patrocinador1.png" alt="patrocinador" />
                         <div className="d-flex">
-                            <img className="img-fluid mx-2" src="./img/Libertadores.png" atl="Libertadores" style={{ width: '180px' }} />
-                            <img className="img-fluid mx-2" src="./img/Sudamericana.png" atl="Sudamericana" style={{ width: '200px' }} />
+                            <img className="img-fluid mx-2" src="./img/Libertadores.png" alt="Libertadores" style={{ width: '180px' }} />
+                            <img className="img-fluid mx-2" src="./img/Sudamericana.png" alt="Sudamericana" style={{ width: '200px' }} />
                         </div>
                     </section>
                     <div className="container">
@@ -24,7 +24,7 @@ export default class Footer extends Component { //aqui lo exportamos de una vez
                             </ul>
                         </section>
                         <section className="d-flex justify-content-center align-items-center">
-                            <img src="./img/adult.png" class="img-fluid" style={{ width: '3rem' }} />
+                            <img src="./img/adult.png" class="img-fluid" style={{ width: '3rem' }} alt="adult"/>
                             <p className="mx-2 pt-3" style={{ fontSize: '18px' }}>Por favor juega de forma responsable</p>
                             <button className="btn btn-sm btn-outline-light">Mas informacion</button>
                         </section>

@@ -17,7 +17,7 @@ function Results({ eventsEnded }) { //lo exportamos de una vez
         <div className="results-container p-4 d-flex justify-content-center">
             <div className="w-100 p-5 overflow-auto" style={{ maxHeight: '550px' }}>
                 <h2 className="card-title text-light my-2">Resultados</h2>
-                {(eventsEnded.error == true)
+                {(eventsEnded.error === true)
                     ?   <div className="p-3 text-light my-3" style={{ background: "#21252933" }}>
                             <h4 className="card-title text-center">NO HAY RESULTADOS</h4>
                         </div>

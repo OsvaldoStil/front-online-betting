@@ -14,7 +14,7 @@ function MyBets({ eventBet, setEventBet, setDataUser }) {
                                     ? <div className="text-center">
                                         <h4 className="my-4 p-3" style={{ border: '1px solid #fff' }}>No Has Hecho Ninguna Apuesta</h4>
                                     </div>
-                                    : eventBet.map(event => (event.finished !== true) ? <CardMyBets game={event.game} bets={`${(event.bet == 'Empate') ? event.bet : "Gana " + event.bet} ${event.amount}$`} idEvent={event.id_event} idUser={event.id_user} amount={event.amount} setEventBet={setEventBet} setDataUser={setDataUser} /> : '')
+                                    : eventBet.map(event => (event.finished !== true) ? <CardMyBets game={event.game} bets={`${(event.bet === 'Empate') ? event.bet : "Gana " + event.bet} ${event.amount}$`} idEvent={event.id_event} idUser={event.id_user} amount={event.amount} setEventBet={setEventBet} setDataUser={setDataUser} /> : '')
                                 : <h4>Cargando..</h4>}
                         </div>
                     </div>

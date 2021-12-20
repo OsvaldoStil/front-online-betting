@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; //instalamos un modulo de react para el viaje de las barras de navegacion que se llama react-router-dom
 import { PDFViewer } from '@react-pdf/renderer';
 import axios from 'axios';
@@ -55,7 +55,7 @@ const setAllEvents = (setEvents) => {
   axios.post('http://localhost:3001/events')
     .then(res => { 
         const events = res.data;
-        setEvents((events.length == 0) ? { error: true } : events);
+        setEvents((events.length === 0) ? { error: true } : events);
     }).catch(error => console.log(error));
 };
 
@@ -66,9 +66,9 @@ const setAllEventsBet = (setEventBet,setBets) => {
       const bets = [];
       userBets.map(bet => { 
         bets.push((bet.bet !== 'Empate') ? bet.bet : bet.id_event); 
-        setBets(bets); 
+        return setBets(bets);
       });
-      setEventBet((userBets.length == 0) ? { error: true }:userBets);
+      setEventBet((userBets.length === 0) ? { error: true }:userBets);
     }).catch(error => console.log(error));
 };
 
@@ -76,7 +76,7 @@ const setAllEventsEnded = (setEventsEnded) => {
   axios.post('http://localhost:3001/events/ended')
     .then(res => { 
         const events = res.data;
-        setEventsEnded((events.length == 0) ? { error: true } : events);
+        setEventsEnded((events.length === 0) ? { error: true } : events);
     }).catch(error => console.log(error));
 };
 
@@ -101,14 +101,12 @@ function App() { //creamos la clase para utilizarlo como componente principal y 
   const [eventsEnded,setEventsEnded] = useState([]);
   const [dashboard,setDashboard] = useState(null);
 
-  useEffect(() => { 
-    if (!user) auth(setUser, setDataUser);
-    if (users.length === 0) { setTimeout(() => setAllUsers(setUsers),1000) };
-    if (events.length === 0) { setTimeout(() => setAllEvents(setEvents),1000) };
-    if (eventBet.length === 0) { setTimeout(() => setAllEventsBet(setEventBet,setBets),1000) };
-    if (eventsEnded.length === 0) { setTimeout(() => setAllEventsEnded(setEventsEnded),1000) };
-    if (dashboard === null) { setTimeout(() => setDashboardData(setDashboard),1000) };
-  });
+  if (!user) auth(setUser, setDataUser);
+  if (users.length === 0) { setTimeout(() => setAllUsers(setUsers),1000) };
+  if (events.length === 0) { setTimeout(() => setAllEvents(setEvents),1000) };
+  if (eventBet.length === 0) { setTimeout(() => setAllEventsBet(setEventBet,setBets),1000) };
+  if (eventsEnded.length === 0) { setTimeout(() => setAllEventsEnded(setEventsEnded),1000) };
+  if (dashboard === null) { setTimeout(() => setDashboardData(setDashboard),1000) };
 
   return ( // aqui lo retornamos y va a ir la sintaxis de JSX que es un parecido a html (no lo confundas no es html es un parecido)
     <div>
@@ -130,7 +128,7 @@ function App() { //creamos la clase para utilizarlo como componente principal y 
 
           <Route path="/event" element={<Event />} />
           <Route path="/create/event" element={<CreateEvent setEvents={setEvents} setEventsEnded={setEventsEnded}/>} />
-          <Route path="/finish/event" element={<FinishEvent events={events} setEvents={setEvents} setEventsEnded={setEventsEnded} setEvents={setEvents}/>} />
+          <Route path="/finish/event" element={<FinishEvent events={events} setEvents={setEvents} setEventsEnded={setEventsEnded}/>} />
           <Route path="/generate/report" element={<GenerateReport setReport={setReport}/>} />
 
           <Route path="/admin/dashboard" element={<Dashboard events={events} users={users} dashboard={dashboard}/>}/>

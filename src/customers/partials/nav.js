@@ -19,7 +19,7 @@ function Nav({ auth, dataUser, setUser, setDataUser, setEventBet }) { //aqui lo 
         <div>
             <nav className="navbar navbar-light bg-dark px-5" >
                 <div>
-                    <a className="navbar-brand mx-3" style={{ fontSize: "38px", color: "#fb7b33" }}>BETFAIR</a>
+                    <Link className="navbar-brand mx-3" style={{ fontSize: "38px", color: "#fb7b33" }} to="/">BETFAIR</Link>
                 </div>
                 <div>
                     {!auth ?
@@ -47,21 +47,21 @@ function Nav({ auth, dataUser, setUser, setDataUser, setEventBet }) { //aqui lo 
                     <div className='p-2 w-100 d-flex justify-content-center align-items-center' style={{ height: '70%' }}>
                         <div>
                             {(dataUser !== null)
-                                ? (dataUser.userType == 'user')
+                                ? (dataUser.userType === 'user')
                                     ?   <div className='d-flex text-justify flex-column'>
                                             <Link className="link-sidebar" to="/user/myBets" onClick={onClickToExit}><i className="fas fa-money-bill mx-2"></i>Mis Apuestas</Link>
                                             <Link className="link-sidebar" to="/user/balance" onClick={onClickToExit}><i className="fas fa-university mx-2"></i>Mi Saldo</Link>
                                             <Link className="link-sidebar" to="/user/statistics" onClick={onClickToExit}><i className="fas fa-chart-bar mx-2"></i>Estadisticas</Link>
                                             <Link className="link-sidebar" to="/user/setting" onClick={onClickToExit}><i className="fas fa-cog mx-2"></i>Configuracion</Link>
                                         </div>
-                                    : (dataUser.userType == 'organizer')
+                                    : (dataUser.userType === 'organizer')
                                         ?   <div className='d-flex text-justify flex-column'>
                                                 <Link className="link-sidebar" to="/create/event" onClick={onClickToExit}><i className="fas fa-calendar-alt mx-2"></i>Crear Evento</Link>
                                                 <Link className="link-sidebar" to="/finish/event" onClick={onClickToExit}><i className="fas fa-calendar-alt mx-2"></i>Finalizar Evento</Link>
                                                 <Link className="link-sidebar" to="/generate/report" onClick={onClickToExit}><i className="fas fa-sticky-note mx-2"></i>Generar Reporte</Link>
                                                 <Link className="link-sidebar" to="/admin/setting" onClick={onClickToExit}><i className="fas fa-cog mx-2"></i>Configuracion</Link>
                                             </div>
-                                        : (dataUser.userType == 'admin')
+                                        : (dataUser.userType === 'admin')
                                             ?   <div className='d-flex text-justify flex-column'>
                                                     <Link className="link-sidebar" to="/admin/dashboard" onClick={onClickToExit}><i className="fas fa-chart-line mx-2"></i>Dashboard</Link>
                                                     <Link className="link-sidebar" to="/admin/userControl" onClick={onClickToExit}><i className="fas fa-users mx-2"></i>Control De Usuario</Link>

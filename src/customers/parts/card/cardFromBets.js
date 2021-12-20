@@ -2,7 +2,7 @@ import axios from 'axios';
 
 const bets = (id, bets) => {
     document.getElementById('moneyToBet').style.display = 'flex';
-    document.getElementById('betTitle').textContent = (bets == 'Empate') ? 'Empate' : `Gana ${bets}`;
+    document.getElementById('betTitle').textContent = (bets === 'Empate') ? 'Empate' : `Gana ${bets}`;
     document.getElementById('moneyToBet').setAttribute('value', id);
     document.getElementById('confirmButtonToBet').setAttribute('value', bets);
 };
@@ -49,7 +49,7 @@ function CardFromBets({ title, teamOne, teamBetOne, teamTwo, teamBetTwo, id, dat
                     </div>
                     <div>
                         {(dataUser !== null)
-                            ? (dataUser.userType == 'user')
+                            ? (dataUser.userType === 'user')
                                 ? (betValidation)
                                     ? <div className="my-2 d-flex justify-content-between">
                                         <button className="btn btn-outline-light btn-sm" value={teamOne} onClick={e => { bets(id, e.target.value) }}>{teamOne}</button>
@@ -65,7 +65,7 @@ function CardFromBets({ title, teamOne, teamBetOne, teamTwo, teamBetTwo, id, dat
             <div id="moneyToBet">
                 <div className="card p-2" style={{ width: '35%' }}>
                     <div className='p-4'>
-                        <h4 id="betTitle" className='title'></h4>
+                        <h4 className='title' id="betTitle">Deposito</h4>
                         <input id="inputMoneyToBet" type="number" className="form-control" placeholder="Digite La Cantidad A Apostar" />
                         <div className='p-3 row gap-2'>
                             <button id="confirmButtonToBet" className='col btn text-light' style={{ background: "#fb7b33" }} onClick={e => betEvent(dataUser, e.target.value, teamOne, teamTwo,setEventBet,setDataUser)}>Confirmar</button>

@@ -124,7 +124,7 @@ function Dashboard({ events, users, dashboard }) {
                                         <div class="col-lg-3 col-md-6 d-flex stat my-3">
                                             <div class="mx-auto">
                                                 <h6 class="text-muted">Eventos Activos</h6>
-                                                <h3 class="font-weight-bold">{(events.error !== true || events.length == 0) ? events.length : '0'}</h3>
+                                                <h3 class="font-weight-bold">{(events.error !== true || events.length === 0) ? events.length : '0'}</h3>
                                             </div>
                                         </div>
                                         <div class="col-lg-3 col-md-6 d-flex stat my-3">

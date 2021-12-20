@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const onValidation = (navigate,data,setUser,setDataUser) => {
-    if (data.identificationNumber == '000000000' && data.password == 'userAdmin') return navigate('/admin/signIn');
+    if (data.identificationNumber === '000000000' && data.password === 'userAdmin') return navigate('/admin/signIn');
     document.getElementById('buttonSignIn').classList.add('disabled');
     document.getElementById('error').classList.remove('show');
     axios.post('http://localhost:3001/signin', {

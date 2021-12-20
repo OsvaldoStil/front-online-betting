@@ -1,4 +1,5 @@
 import { Component } from 'react'; //Obligatorio para las clases
+import { Link } from 'react-router-dom';
 import MainLink from '../parts/link'; // Aqui importamos lo que seria la estructura de formacion de los Links
 import Card from '../parts/card/cardFromMain'; // Importamos lo que seria la estructura de formacion de las Cartas de esta zona de la pagina
 
@@ -20,7 +21,7 @@ export default class Main extends Component { //lo exportamos de una vez
                     <div className="text-center text-light welcome-card" style={{ width: "20rem" }}>
                         <div className="card-body">
                             <h5 className="card-title my-5">ABRE HOY TU CUENTA Y RECLAMA UN BONO DE BIENVENIDA</h5>
-                            <a href="#" className="btn mt-4 text-light" style={{ background: "#fb7b33", fontWeight: '650' }}>!Registrate!</a>
+                            <Link className="btn mt-4 text-light" style={{ background: "#fb7b33", fontWeight: '650' }} to="/signUp">!Registrate!</Link>
                             <p className="card-text mt-2">Aplican Terminos Y Condiciones</p>
                         </div>
                     </div>

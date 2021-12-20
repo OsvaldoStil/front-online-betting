@@ -38,24 +38,24 @@ function Bets({ leagueEvents, setLeagueEvents, events, setEvents, dataUser, bets
                                     <Card
                                         title={event.league}
                                         teamOne={event.teamOne}
-                                        teamBetOne={(bets.indexOf(event.teamOne) != -1 || bets.indexOf(event._id) != -1) ? "1" : "0"}
+                                        teamBetOne={(bets.indexOf(event.teamOne) !== -1 || bets.indexOf(event._id) !== -1) ? "1" : "0"}
                                         teamTwo={event.teamTwo}
-                                        teamBetTwo={(bets.indexOf(event.teamTwo) != -1 || bets.indexOf(event._id) != -1) ? "1" : "0"}
+                                        teamBetTwo={(bets.indexOf(event.teamTwo) !== -1 || bets.indexOf(event._id) !== -1) ? "1" : "0"}
                                         id={event._id}
                                         dataUser={dataUser}
-                                        betValidation={(bets.indexOf(event.teamTwo) != -1 || bets.indexOf(event._id) != -1 || bets.indexOf(event.teamOne) != -1 || bets.indexOf(event._id) != -1) ? false : true} 
+                                        betValidation={(bets.indexOf(event.teamTwo) !== -1 || bets.indexOf(event._id) !== -1 || bets.indexOf(event.teamOne) !== -1 || bets.indexOf(event._id) !== -1) ? false : true} 
                                         setEventBet={setEventBet}
                                         setDataUser={setDataUser}/>)
                                 : leagueEvents.map(event =>
                                     <Card
                                         title={event.league}
                                         teamOne={event.teamOne}
-                                        teamBetOne={(bets.indexOf(event.teamOne) != -1 || bets.indexOf(event._id) != -1) ? "1" : "0"}
+                                        teamBetOne={(bets.indexOf(event.teamOne) !== -1 || bets.indexOf(event._id) !== -1) ? "1" : "0"}
                                         teamTwo={event.teamTwo}
-                                        teamBetTwo={(bets.indexOf(event.teamTwo) != -1 || bets.indexOf(event._id) != -1) ? "1" : "0"}
+                                        teamBetTwo={(bets.indexOf(event.teamTwo) !== -1 || bets.indexOf(event._id) !== -1) ? "1" : "0"}
                                         id={event._id}
                                         dataUser={dataUser}
-                                        betValidation={(bets.indexOf(event.teamTwo) != -1 || bets.indexOf(event._id) != -1 || bets.indexOf(event.teamOne) != -1 || bets.indexOf(event._id) != -1) ? false : true} 
+                                        betValidation={(bets.indexOf(event.teamTwo) !== -1 || bets.indexOf(event._id) !== -1 || bets.indexOf(event.teamOne) !== -1 || bets.indexOf(event._id) !== -1) ? false : true} 
                                         setEventBet={setEventBet}
                                         setDataUser={setDataUser}/>)
                             : <h3 className="text-center text-light">No Hay Eventos Disponibles</h3>}
