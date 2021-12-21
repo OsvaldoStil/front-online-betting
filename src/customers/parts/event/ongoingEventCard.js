@@ -19,7 +19,7 @@ const startValidation = (confirm,id, setEventsEnded,setEvents,navigate) => {
             const teamPointsOne = document.getElementById('teamOne').value;
             const teamPointsTwo = document.getElementById('teamTwo').value;
             const result = `${teamPointsOne}-${teamPointsTwo}`;
-            axios.post(`http://localhost:3001/define/winner/${id}`,{ winner: result.value, result })
+            axios.post(`https://backend-online-betting.herokuapp.com/define/winner/${id}`,{ winner: result.value, result })
                 .then(() => {
                     setEvents([]);
                     setEventsEnded([]);
@@ -32,7 +32,7 @@ const startValidation = (confirm,id, setEventsEnded,setEvents,navigate) => {
 const removeEvent = (id,setEvents) => {
     const confirmRemove = window.confirm('ESTAS SEGURO QUE DESEA ELIMINAR EL EVENTO');
     if (confirmRemove){
-        axios.post(`http://localhost:3001/remove/event/${id}`)
+        axios.post(`https://backend-online-betting.herokuapp.com/remove/event/${id}`)
             .then(() => setEvents([])).catch(error => console.log(error));
     };
 };

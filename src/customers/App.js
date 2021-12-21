@@ -34,7 +34,7 @@ import PDFReport from './views/PDFReport';
 //------------------------//
 
 const auth = (setUser, setDataUser) => {
-  axios.post('http://localhost:3001/user/isAuthenticated')
+  axios.post('https://backend-online-betting.herokuapp.com/user/isAuthenticated')
     .then(res => {
       const auth = res.data.authentication;
       setUser(auth);
@@ -44,7 +44,7 @@ const auth = (setUser, setDataUser) => {
 };
 
 const setAllUsers = (setUsers) => {
-  axios.post('http://localhost:3001/admin/userControl')
+  axios.post('https://backend-online-betting.herokuapp.com/admin/userControl')
     .then(res => { 
         const users = res.data;
         setUsers(users);
@@ -52,7 +52,7 @@ const setAllUsers = (setUsers) => {
 };
 
 const setAllEvents = (setEvents) => {
-  axios.post('http://localhost:3001/events')
+  axios.post('https://backend-online-betting.herokuapp.com/events')
     .then(res => { 
         const events = res.data;
         setEvents((events.length === 0) ? { error: true } : events);
@@ -60,7 +60,7 @@ const setAllEvents = (setEvents) => {
 };
 
 const setAllEventsBet = (setEventBet,setBets) => {
-  axios.post('http://localhost:3001/get/user/bet')
+  axios.post('https://backend-online-betting.herokuapp.com/get/user/bet')
     .then(res => {
       const userBets = res.data;
       const bets = [];
@@ -73,7 +73,7 @@ const setAllEventsBet = (setEventBet,setBets) => {
 };
 
 const setAllEventsEnded = (setEventsEnded) => {
-  axios.post('http://localhost:3001/events/ended')
+  axios.post('https://backend-online-betting.herokuapp.com/events/ended')
     .then(res => { 
         const events = res.data;
         setEventsEnded((events.length === 0) ? { error: true } : events);
@@ -81,7 +81,7 @@ const setAllEventsEnded = (setEventsEnded) => {
 };
 
 const setDashboardData = (setDashboard) => {
-  axios.post('http://localhost:3001/dashboard/data')
+  axios.post('https://backend-online-betting.herokuapp.com/dashboard/data')
     .then(res => { 
         const dashboardData = res.data;
         console.log(dashboardData);

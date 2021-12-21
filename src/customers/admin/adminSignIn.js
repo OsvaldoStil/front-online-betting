@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const adminValidation = (data, setUser, setDataUser, navigate) => {
-    axios.post('http://localhost:3001/adminSignIn',{
+    axios.post('https://backend-online-betting.herokuapp.com/adminSignIn',{
         adminName: data.name,
         keyPassword: data.keyPassword,
         password: data.password

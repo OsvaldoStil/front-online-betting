@@ -7,7 +7,7 @@ const createEvent = (navigate,setEvents,setEventsEnded) => {
     const league = document.getElementById('league').value;
     const teamOne = document.getElementById('teamOne').value;
     const teamTwo = document.getElementById('teamTwo').value;
-    axios.post('http://localhost:3001/create/event',{ description, paymentDate, league, teamOne, teamTwo })
+    axios.post('https://backend-online-betting.herokuapp.com/create/event',{ description, paymentDate, league, teamOne, teamTwo })
         .then(() => { 
             setEvents([]);
             setEventsEnded([]);

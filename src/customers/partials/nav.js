@@ -3,7 +3,7 @@ import NavLink from '../parts/link'; // Aqui importamos lo que seria la estructu
 import axios from 'axios';
 
 const logOut = (setUser, setDataUser, navigate,setEventBet) => {
-    axios.post('http://localhost:3001/user/logOut')
+    axios.post('https://backend-online-betting.herokuapp.com/user/logOut')
         .then(() => {
             navigate('/');
             setUser(false);

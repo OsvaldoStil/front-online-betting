@@ -14,7 +14,7 @@ const betEvent = (user, bet, teamOne, teamTwo,setEventBet,setDataUser) => {
         if (confirmBet) {
             document.getElementById('moneyToBet').style.display = 'none';
             const idEvent = document.getElementById('moneyToBet').getAttribute('value');
-            axios.post('http://localhost:3001/event/bet', {
+            axios.post('https://backend-online-betting.herokuapp.com/event/bet', {
                 id_event: idEvent,
                 id_user: user._id,
                 amount,
@@ -22,7 +22,7 @@ const betEvent = (user, bet, teamOne, teamTwo,setEventBet,setDataUser) => {
                 game: `${teamOne} Vs ${teamTwo}`
             }).then(() => { 
                 setEventBet([]);
-                axios.post('http://localhost:3001/user/isAuthenticated').then(res => setDataUser(res.data.user)).catch(error => console.log(error));
+                axios.post('https://backend-online-betting.herokuapp.com/user/isAuthenticated').then(res => setDataUser(res.data.user)).catch(error => console.log(error));
             }).catch(error => console.log(error));
         };
     } else {

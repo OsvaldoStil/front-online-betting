@@ -4,10 +4,10 @@ import axios from 'axios';
 const cancelBet = (id_event,id_user,amount, setEventBet,navigate,setDataUser) => {
     const confirmCancel = window.confirm('Estas Seguro Que Quieres Cancelar La Apuesta');
     if (confirmCancel) {
-        axios.post('http://localhost:3001/cancel/event', { id_event, id_user, amount })
+        axios.post('https://backend-online-betting.herokuapp.com/cancel/event', { id_event, id_user, amount })
             .then(() => { 
                 setEventBet([]);
-                axios.post('http://localhost:3001/user/isAuthenticated').then(res => { setDataUser(res.data.user) }).catch(error => console.log(error));
+                axios.post('https://backend-online-betting.herokuapp.com/user/isAuthenticated').then(res => { setDataUser(res.data.user) }).catch(error => console.log(error));
             }).catch(error => console.log(error));
     };
 };
